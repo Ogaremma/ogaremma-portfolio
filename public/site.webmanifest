@@ -4,13 +4,13 @@
   "description": "Software engineer and Web3 developer building practical products, blockchain infrastructure, and developer tools.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F8FAFF",
-  "theme_color": "#07142F",
+  "background_color": "#050912",
+  "theme_color": "#050912",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }
