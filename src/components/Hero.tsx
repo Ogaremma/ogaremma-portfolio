@@ -1,107 +1,62 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--royal-blue)_0%,_transparent_70%)] opacity-10" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,_transparent_50%,_var(--background)_100%)]" aria-hidden="true" />
-
-      <div className="relative z-10 max-w-5xl mx-auto w-full text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-6"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card-bg text-sm font-medium text-royal-blue">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-blue opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-electric-blue" />
-            </span>
-            Building practical software & blockchain products
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-royal-navy mb-6"
-        >
-          Ogar Emma
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="text-xl sm:text-2xl font-medium text-muted-blue mb-4"
-        >
-          Software Engineer · Web3 Developer · Product Builder
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="text-lg sm:text-xl text-muted-blue max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          I build practical products, blockchain infrastructure, and developer tools that solve real problems.
-          3 years of experience shipping production software with Next.js, React, TypeScript, Solidity, and Python.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-royal-blue text-white font-semibold text-lg hover:bg-royal-blue/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2"
-          >
-            View Projects
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border-2 border-royal-blue text-royal-blue font-semibold text-lg hover:bg-royal-blue/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2"
-          >
-            Contact Me
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-          className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-card-bg"
-        >
-          <div className="flex items-center gap-1.5 text-sm text-muted-blue">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            Open to interesting projects & collaborations
+    <section id="top" aria-labelledby="hero-heading" className="border-b border-border bg-background">
+      <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+        <div className="grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-20">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-blue">
+              Software Engineer · Web3 Developer · Product Builder
+            </p>
+            <h1 id="hero-heading" className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Ogar Emma
+            </h1>
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-foreground sm:text-2xl">
+              I build practical products, blockchain infrastructure, and developer tools that solve real problems.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+              Three years of shipping production software across web applications, blockchain systems, and product engineering.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 border-b border-electric-blue pb-1 text-sm font-semibold text-white transition-colors hover:text-electric-blue"
+              >
+                View selected work
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-6-6l6 6-6 6" />
+                </svg>
+              </a>
+              <a href="#contact" className="text-sm font-medium text-muted transition-colors hover:text-white">
+                Get in touch
+              </a>
+            </div>
           </div>
-        </motion.div>
-      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
-        aria-hidden="true"
-      >
-        <svg className="w-6 h-6 text-muted-blue/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </motion.div>
+          <aside className="border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-label="Profile summary">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">At a glance</p>
+            <dl className="mt-6 space-y-6">
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-electric-blue">Experience</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-foreground">
+                  Three years across web applications, blockchain systems, and product engineering.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-electric-blue">Focus</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-foreground">
+                  Web3 infrastructure, developer tools, and user-facing products.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-electric-blue">Stack</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-foreground">
+                  TypeScript, Next.js, React, Python, and Solidity.
+                </dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
     </section>
   );
 }

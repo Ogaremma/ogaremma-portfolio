@@ -37,8 +37,9 @@ const contacts = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-royal-navy">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="relative py-20 px-6 bg-background overflow-hidden border-t border-border">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_100%,rgba(30,79,224,0.22),transparent_70%)]" aria-hidden="true" />
+      <div className="relative max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +62,7 @@ export default function Contact() {
         >
           <a
             href="mailto:ogaremma@example.com"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-electric-blue text-white font-semibold text-lg hover:bg-electric-blue/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 focus-visible:ring-offset-royal-navy"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-royal-blue text-white font-semibold text-lg hover:bg-electric-blue transition-colors shadow-lg shadow-royal-blue/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Email Me
             <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -83,7 +84,7 @@ export default function Contact() {
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-royal-blue/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 focus-visible:ring-offset-royal-navy"
+              className="group p-5 rounded-xl border border-white/10 bg-surface/70 hover:bg-surface hover:border-electric-blue/40 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <div className="text-electric-blue mb-3 group-hover:scale-110 transition-transform">{contact.icon}</div>
               <h3 className="text-lg font-semibold text-white mb-1">{contact.name}</h3>
@@ -97,7 +98,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="mt-12 text-sm text-muted-blue/60"
+          className="mt-12 text-sm text-muted-blue/70"
         >
           Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion. Designed and developed by Ogar Emma.
         </motion.p>

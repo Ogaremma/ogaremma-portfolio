@@ -1,99 +1,38 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const skills = [
-  {
-    category: "Languages",
-    items: ["JavaScript", "TypeScript", "Python", "Solidity"],
-    color: "royal-blue",
-    bgColor: "bg-royal-blue/10",
-    borderColor: "border-royal-blue/20",
-    textColor: "text-royal-blue",
-  },
-  {
-    category: "Frontend",
-    items: ["HTML", "CSS", "React", "Next.js"],
-    color: "electric-blue",
-    bgColor: "bg-electric-blue/10",
-    borderColor: "border-electric-blue/20",
-    textColor: "text-electric-blue",
-  },
-  {
-    category: "Backend",
-    items: ["Node.js", "Express", "FastAPI"],
-    color: "emerald-500",
-    bgColor: "bg-emerald-500/10",
-    borderColor: "border-emerald-500/20",
-    textColor: "text-emerald-500",
-  },
-  {
-    category: "Blockchain",
-    items: ["Solidity", "Foundry", "Wagmi", "Viem", "Ethereum", "Bitcoin ecash / Cashu"],
-    color: "amber-500",
-    bgColor: "bg-amber-500/10",
-    borderColor: "border-amber-500/20",
-    textColor: "text-amber-500",
-  },
-  {
-    category: "Data",
-    items: ["PostgreSQL", "MongoDB"],
-    color: "violet-500",
-    bgColor: "bg-violet-500/10",
-    borderColor: "border-violet-500/20",
-    textColor: "text-violet-500",
-  },
-  {
-    category: "Tools",
-    items: ["Git", "GitHub", "Docker", "AI-assisted development tools"],
-    color: "rose-500",
-    bgColor: "bg-rose-500/10",
-    borderColor: "border-rose-500/20",
-    textColor: "text-rose-500",
-  },
+  { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "Solidity"] },
+  { category: "Frontend", items: ["HTML", "CSS", "React", "Next.js"] },
+  { category: "Backend", items: ["Node.js", "Express", "FastAPI"] },
+  { category: "Blockchain", items: ["Solidity", "Foundry", "Wagmi", "Viem", "Ethereum", "Bitcoin ecash / Cashu"] },
+  { category: "Data", items: ["PostgreSQL", "MongoDB"] },
+  { category: "Tools", items: ["Git", "GitHub", "Docker"] },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-royal-navy mb-4">Technical Skills</h2>
-          <p className="text-lg text-muted-blue max-w-2xl mx-auto">Technologies I work with. Not expert-level mastery in everything — just tools I&apos;ve used to build real things.</p>
-        </motion.div>
+    <section id="skills" aria-labelledby="skills-heading" className="border-b border-border bg-section">
+      <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
+        <div className="grid gap-10 lg:grid-cols-[12rem_minmax(0,1fr)] lg:gap-16">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-blue">03 / Skills</p>
+            <h2 id="skills-heading" className="mt-4 text-3xl font-semibold tracking-tight text-white">
+              Technical skills
+            </h2>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
+              Technologies I use across the projects above.
+            </p>
+          </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
-              className="p-6 rounded-xl border border-border bg-card-bg hover:border-royal-blue/30 transition-colors"
-            >
-              <h3 className="text-lg font-semibold text-royal-navy mb-4 flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${skill.bgColor.replace("bg-", "bg-")}`} aria-hidden="true" />
-                {skill.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span
-                    key={item}
-                    className={`px-3 py-1.5 text-sm font-medium rounded-lg border ${skill.bgColor} ${skill.borderColor} ${skill.textColor}`}
-                  >
-                    {item}
-                  </span>
-                ))}
+          <div className="border-t border-border">
+            {skills.map((skill) => (
+              <div
+                key={skill.category}
+                className="grid gap-2 border-b border-border py-5 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-8"
+              >
+                <h3 className="text-sm font-medium text-white">{skill.category}</h3>
+                <p className="text-sm leading-relaxed text-muted">{skill.items.join(" · ")}</p>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

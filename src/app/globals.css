@@ -1,29 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8FAFF;
-  --foreground: #07142F;
-  --royal-navy: #07142F;
-  --royal-blue: #1648D8;
-  --electric-blue: #4F8CFF;
-  --muted-blue: #6B8CBC;
-  --white: #F8FAFF;
-  --card-bg: #FFFFFF;
-  --border-color: #E0E7F0;
+  color-scheme: dark;
+  --background: #050912;
+  --section: #080e1b;
+  --surface: #0b1322;
+  --foreground: #e6edf9;
+  --muted: #9aa9c4;
+  --royal-blue: #2453c6;
+  --electric-blue: #7ca8f7;
+  --border: #1b2a47;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-section: var(--section);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --color-royal-navy: var(--royal-navy);
+  --color-muted: var(--muted);
   --color-royal-blue: var(--royal-blue);
   --color-electric-blue: var(--electric-blue);
-  --color-muted-blue: var(--muted-blue);
-  --color-white: var(--white);
-  --color-card-bg: var(--card-bg);
-  --color-border: var(--border-color);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -32,18 +39,14 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 ::selection {
   background: var(--royal-blue);
-  color: var(--white);
+  color: #ffffff;
 }
 
-.focus-visible:focus-visible {
+:focus-visible {
   outline: 2px solid var(--electric-blue);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -54,7 +57,6 @@ html {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

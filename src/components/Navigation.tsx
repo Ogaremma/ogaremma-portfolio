@@ -1,131 +1,87 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const navItems = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
+  { href: "#projects", label: "Work" },
   { href: "#skills", label: "Skills" },
   { href: "#journey", label: "Journey" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleMobileMenuClick = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-6" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16">
-          <motion.a
-            href="#"
-            className="text-xl font-bold text-royal-navy hover:text-royal-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 rounded"
-            aria-label="Ogar Emma - Home"
-          >
-            OE
-          </motion.a>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background">
+      <nav className="mx-auto max-w-6xl px-6" aria-label="Main navigation">
+        <div className="flex h-16 items-center justify-between">
+          <a href="#top" className="inline-flex items-center gap-3" aria-label="Ogar Emma - Home">
+            <span className="h-2 w-2 bg-electric-blue" aria-hidden="true" />
+            <span className="text-sm font-semibold tracking-tight text-white">Ogar Emma</span>
+          </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
-              <motion.a
+              <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-blue hover:text-royal-blue transition-colors relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 rounded"
-                whileHover={{ x: 2 }}
+                className="border-b border-transparent pb-1 text-sm text-muted transition-colors hover:border-electric-blue hover:text-white"
               >
                 {item.label}
-              </motion.a>
+              </a>
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-royal-blue text-royal-blue font-medium text-sm hover:bg-royal-blue/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2"
+              className="hidden items-center gap-2 text-sm font-medium text-electric-blue transition-colors hover:text-white sm:inline-flex"
             >
-              Contact
+              Get in touch
+              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-6-6l6 6-6 6" />
+              </svg>
             </a>
 
             <button
-              className="md:hidden p-2 rounded-lg text-muted-blue hover:text-royal-blue hover:bg-royal-blue/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2"
+              type="button"
+              className="p-2 text-muted transition-colors hover:text-white md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
               )}
             </button>
           </div>
         </div>
-
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              id="mobile-menu"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden bg-white border-t border-border"
-            >
-              <div className="py-4 space-y-2 px-6">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => handleMobileMenuClick(item.href)}
-                    className="block px-4 py-3 rounded-lg text-muted-blue hover:text-royal-blue hover:bg-royal-blue/5 font-medium transition-colors"
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
-                <a
-                  href="#contact"
-                  onClick={() => handleMobileMenuClick("#contact")}
-                  className="block mt-2 px-4 py-3 rounded-lg border-2 border-royal-blue text-royal-blue font-medium text-center hover:bg-royal-blue/5 transition-colors"
-                >
-                  Contact
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
-    </motion.header>
+
+      {isMobileMenuOpen && (
+        <div id="mobile-menu" className="border-t border-border bg-background md:hidden">
+          <div className="mx-auto max-w-6xl px-6 py-3">
+            {[...navItems, { href: "#contact", label: "Get in touch" }].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block border-b border-border py-3 text-sm text-foreground last:border-0"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

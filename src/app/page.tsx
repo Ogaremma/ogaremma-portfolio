@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 min-h-screen">
+      <main id="main" className="pt-16">
         <Hero />
         <About />
         <Projects />

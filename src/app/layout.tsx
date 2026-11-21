@@ -37,14 +37,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.svg",
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
   manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07142F",
+  themeColor: "#050912",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -53,11 +53,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className="min-h-full flex flex-col bg-white text-royal-navy">{children}</body>
+      <body className="min-h-full bg-background text-foreground">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:z-[60] focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
