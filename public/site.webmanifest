@@ -1,0 +1,16 @@
+{
+  "name": "Ogar Emma | Software Engineer & Web3 Developer",
+  "short_name": "Ogar Emma",
+  "description": "Software engineer and Web3 developer building practical products, blockchain infrastructure, and developer tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFF",
+  "theme_color": "#07142F",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
